@@ -4,7 +4,7 @@ import { CategoriaTipoAnimaisModel } from '../../../models/categoria-animais'
 
 const categoriaanimaisService = new CategoriaAnimaisService()
 
-export class UpdateCategoriaAnimais {
+export class UpdateCategoriaAnimaisController {
     async updateCategoriaAnimais(request: any): Promise<ControllerResponse> {
         try {
             const requredFields = ['id_categoria', 'categoria_nome', 'tipo_animais_id']
