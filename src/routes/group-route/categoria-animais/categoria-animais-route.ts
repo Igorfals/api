@@ -7,5 +7,5 @@ const categoriaanimaisMiddleWare = new CategoriaAnimaisMiddleWare()
 
 router.post('/add', categoriaanimaisMiddleWare.setCategoriaanimais)
 router.put('/update', categoriaanimaisMiddleWare.updatecategoriaAnimais)
-router.delete('/delete:id', categoriaanimaisMiddleWare.deletecategoriaAnimais)
+router.delete('/delete/:id', categoriaanimaisMiddleWare.deletecategoriaAnimais)
 export default router
