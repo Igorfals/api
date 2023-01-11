@@ -1,4 +1,4 @@
 export interface CategoriaTipoAnimaisModel {
-    id_animal?: number
+    id_categoria?: number
     categoria_nome: string
 }

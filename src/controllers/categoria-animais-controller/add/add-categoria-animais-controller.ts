@@ -21,7 +21,7 @@ export class AddCategoriaAnimaisController {
                 }
             }
             const categoriaAnimaisAdd: CategoriaTipoAnimaisModel = {
-                categoria_nome: request.categoria_nome
+                categoria_nome: request.categoria_animais
             }
 
             const categoriaanimais = await categoriaAnimaisService.setCategoriaAnimaisTipo(categoriaAnimaisAdd)
