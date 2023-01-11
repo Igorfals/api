@@ -9,7 +9,7 @@ const categoriaAnimaisService = new CategoriaAnimaisService()
 export class AddCategoriaAnimaisController {
     async setCategoriaanimais(request: any): Promise<ControllerResponse> {
         try {
-            const requredFields = ['categoria_nome']
+            const requredFields = ['categoria_nome', 'tipo_animais_id']
             for (const field of requredFields) {
                 if (!request[field]) {
                     return {
@@ -21,7 +21,8 @@ export class AddCategoriaAnimaisController {
                 }
             }
             const categoriaAnimaisAdd: CategoriaTipoAnimaisModel = {
-                categoria_nome: request.categoria_animais
+                tipo_animais_id: request.tipo_animais_id,
+                categoria_nome: request.categoria_nome
             }
 
             const categoriaanimais = await categoriaAnimaisService.setCategoriaAnimaisTipo(categoriaAnimaisAdd)
