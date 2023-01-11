@@ -15,4 +15,13 @@ export class CategoriaAnimaisService {
     updateCategoriaAnimais(obj: any): Knex.QueryBuilder {
         return knex('categoria_animais').update(obj).where('id_categoria', obj.id_categoria)
     }
+    deleteCategoriaAnimais(id: number): any {
+        try {
+            return knex.transaction(async function (trx) {
+                await trx('categoria_animais').where('id_categoria', id).del()
+            })
+        } catch (error) {
+            return Error()
+        }
+    }
 }
