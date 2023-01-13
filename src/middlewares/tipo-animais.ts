@@ -5,7 +5,6 @@ import { Response, Request } from 'express'
 import { GetTipoAnimaisController } from '../controllers/tipo-animais-controller/get/tipo-animais-controller'
 import { UpdateTipoAnimaisController } from '../controllers/tipo-animais-controller/update/update-tipo-animais'
 import { DeleteTipoAnimaisController } from '../controllers/tipo-animais-controller/delete/delete-tipo-animais'
-import { request } from 'http'
 // importes
 // -------------------------------------------------------
 const addcontroller = new AddTipoAnimaisController()

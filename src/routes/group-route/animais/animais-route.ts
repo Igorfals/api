@@ -1,10 +1,9 @@
 import { Router } from 'express'
+import { AnimaisMiddleWhere } from '../../../middlewares/animais'
 
 const router = Router()
+const animaisMiddleWare = new AnimaisMiddleWhere()
 
-router.get('/', function (req, res) {
-    res.send('Hello World')
-})
-
+router.post('/add', animaisMiddleWare.setAnimais)
 
 export default router
