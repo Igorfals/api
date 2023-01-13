@@ -56,4 +56,7 @@ export class AnimaisService {
             })
             .first()
     }
+    updateAnimais(obj: any): Knex.QueryBuilder {
+        return knex('animais').update(obj).where('id_animal', obj.id_animal)
+    }
 }
