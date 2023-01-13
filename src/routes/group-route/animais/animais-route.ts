@@ -7,6 +7,6 @@ const animaisMiddleWare = new AnimaisMiddleWhere()
 router.post('/add', animaisMiddleWare.setAnimais)
 router.get('/', animaisMiddleWare.getAnimais)
 router.put('/update', animaisMiddleWare.updateAnimais)
-
+router.delete('/delete/:id', animaisMiddleWare.deleteAnimais)
 
 export default router
