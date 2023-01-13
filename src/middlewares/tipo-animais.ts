@@ -2,11 +2,14 @@
 import { ControllerResponse } from '../models/controller'
 import { AddTipoAnimaisController } from '../controllers/tipo-animais-controller/add/add-tipo-animais-controller'
 import { Response, Request } from 'express'
+import { GetTipoAnimaisController } from '../controllers/tipo-animais-controller/get/tipo-animais-controller'
 import { UpdateTipoAnimaisController } from '../controllers/tipo-animais-controller/update/update-tipo-animais'
 import { DeleteTipoAnimaisController } from '../controllers/tipo-animais-controller/delete/delete-tipo-animais'
+import { request } from 'http'
 // importes
 // -------------------------------------------------------
 const addcontroller = new AddTipoAnimaisController()
+const getcontroller = new GetTipoAnimaisController()
 const updatecontroller = new UpdateTipoAnimaisController()
 const deletecontroller = new DeleteTipoAnimaisController()
 // criando estancias da class e armazendo em variaveis
@@ -17,6 +20,10 @@ export class TipoAnimaisMiddleWare {
         const dados: ControllerResponse = await addcontroller.setTipoAnimais(req.body)
         res.status(dados.statusCode).json(dados.resposta)
         // dados possiveis req.body que é o corpo
+    }
+    async getTipoAnimais(req: Request, res: Response): Promise<void> {
+        const dados: ControllerResponse = await getcontroller.getTipoAnimais(req.query)
+        res.status(dados.statusCode).json(dados.resposta)
     }
     // ---------------------------------------------
     async updatetipoAnimais(req: Request, res: Response): Promise<void> {

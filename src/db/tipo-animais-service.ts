@@ -11,6 +11,24 @@ export class TipoAnimaisService {
             .select('tipo_animais.*')
             .andWhere('id_tipo', id).first()
     }
+    getTipoAnimais(request: any): Knex.QueryBuilder<TipoAnimaisModel> {
+        return knex('tipo_animais')
+            .andWhere(function () {
+                if (request.pesquisa) {
+                    this.where('nome_tipo', 'Like', `%${request.pesquisa}%`)
+                }
+            })
+            .limit(request.limit).offset(request.offset)
+    }
+    getTipoAnimaisTotal(request: any): Knex.QueryBuilder {
+        return knex('tipo_animais').count('id_tipo as total')
+            .andWhere(function () {
+                if (request.pesquisa) {
+                    this.where('nome_tipo', 'Like', `%${request.pesquisa}%`)
+                }
+            })
+            .first()
+    }
     updateTipoAnimais(obj: any): Knex.QueryBuilder {
         return knex('tipo_animais').update(obj).where('id_tipo', obj.id_tipo)
     }

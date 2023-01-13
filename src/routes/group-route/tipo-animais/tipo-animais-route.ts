@@ -5,6 +5,7 @@ const router = Router()
 const tipoanimaisMiddleWare = new TipoAnimaisMiddleWare()
 
 router.post('/add', tipoanimaisMiddleWare.setTipoAnimais)
+router.get('/', tipoanimaisMiddleWare.getTipoAnimais)
 router.put('/update', tipoanimaisMiddleWare.updatetipoAnimais)
 router.delete('/delete/:id', tipoanimaisMiddleWare.deleteTipoAnimais)
 export default router
